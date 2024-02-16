@@ -1,5 +1,5 @@
 import Navbar from "../components/Navbar";
-// import Footer from "../components/Footer";
+import Footer from "../components/Footer";
 
 export async function homeLoader() {
   // this async function will run before the route loads.
@@ -14,14 +14,14 @@ export async function homeLoader() {
 
 function Home() {
   return (
-    <div class="flex h-full max-w-md flex-col gap-2">
+    <div className="flex h-full max-w-md flex-col gap-2">
       <Navbar />
 
       <main>
         <h1 className="text-3xl font-bold underline">React Starter</h1>
       </main>
 
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }
