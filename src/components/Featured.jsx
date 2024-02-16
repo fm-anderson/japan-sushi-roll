@@ -10,7 +10,7 @@ function Featured() {
           />
         </figure>
         <div className="card-body">
-          <h2 className="card-title text-2xl">Yumi Sushi className</h2>
+          <h2 className="card-title text-2xl">Yumi Sushi Class</h2>
           <p className="text-lg">
             <span className="text-xl text-accent line-through">$249.99</span>
             <span className="text-2xl">$179.99</span>
