@@ -1,6 +1,8 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Overview from "../components/Overview";
+import Featured from "../components/Featured";
+import Menu from "../components/Menu";
 
 export async function homeLoader() {
   // this async function will run before the route loads.
@@ -18,8 +20,10 @@ function Home() {
     <div className="flex h-full max-w-md flex-col gap-2">
       <Navbar />
 
-      <main>
+      <main className="flex h-full max-w-md flex-col gap-2">
         <Overview />
+        <Featured />
+        <Menu />
       </main>
 
       <Footer />
