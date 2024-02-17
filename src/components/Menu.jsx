@@ -1,19 +1,31 @@
+import { useLoaderData } from "react-router-dom";
 import MenuItem from "./MenuItem";
 
-function Menu() {
+function Menu({ current }) {
+  const { items } = useLoaderData();
+  const currentMenu = items.filter((item) => item.menu === current);
+
   return (
     <div className="mx-4 flex flex-col gap-2">
       <div className="h-96 overflow-x-auto">
         <div className="divider">
           <span className="text-center text-lg font-semibold uppercase">
-            Menu Fresh
+            {`MENU ${current.toUpperCase()}`}
           </span>
         </div>
         <table className="table table-pin-rows">
           <tbody>
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) => (
-              <MenuItem key={item} />
-            ))}
+            {currentMenu.length > 0 ? (
+              currentMenu.map((item) => (
+                <MenuItem key={item.name} item={item} />
+              ))
+            ) : (
+              <tr>
+                <td className="text-center py-4" colSpan="4">
+                  No items available for this menu.
+                </td>
+              </tr>
+            )}
           </tbody>
         </table>
       </div>
