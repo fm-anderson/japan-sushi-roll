@@ -1,4 +1,8 @@
+import { useLoaderData } from "react-router-dom";
+
 function ItemModal() {
+  const data = useLoaderData();
+
   const days = [
     "Monday",
     "Tuesday",

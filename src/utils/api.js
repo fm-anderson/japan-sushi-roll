@@ -8,7 +8,14 @@ export async function homeLoader() {
     }
 
     const data = await response.json();
-    return data.data;
+    const { featured, hours, items, menus } = data.data;
+
+    return {
+      featured,
+      hours,
+      items,
+      menus,
+    };
   } catch (err) {
     console.error("Error: ", err);
     return null;
