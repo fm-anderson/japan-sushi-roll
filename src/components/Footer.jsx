@@ -1,12 +1,9 @@
 function Footer() {
   return (
-    <footer className="max-w-md bg-base-200">
+    <footer className="max-w-md bg-base-100 border-t-2">
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex flex-col items-center gap-1 py-2">
-          <div className="flex gap-6">
-            <h1>Yumi Sushi House © {new Date().getFullYear()}</h1>
-          </div>
-
+          <h1>Yumi Sushi House © {new Date().getFullYear()}</h1>
           <div>
             <p>
               Created by:{" "}

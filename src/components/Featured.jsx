@@ -1,6 +1,6 @@
 function Featured() {
   return (
-    <div className="mx-4">
+    <div className="mx-4 my-1">
       <div className="card image-full card-bordered card-compact bg-base-100 shadow-xl">
         <figure>
           <img
@@ -13,7 +13,7 @@ function Featured() {
           <h2 className="card-title text-2xl">Yumi Sushi Class</h2>
           <p className="text-lg">
             <span className="text-xl text-accent line-through">$249.99</span>
-            <span className="text-2xl">$179.99</span>
+            <span className="text-2xl"> $179.99</span>
           </p>
           <div className="card-actions justify-end">
             <button className="btn btn-primary btn-sm">LEARN MORE</button>

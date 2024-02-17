@@ -1,4 +1,4 @@
-function ItemModal() {
+function ModalDetails() {
   return (
     <>
       <input type="checkbox" id="item_modal" className="modal-toggle" />
@@ -32,4 +32,4 @@ function ItemModal() {
   );
 }
 
-export default ItemModal;
+export default ModalDetails;

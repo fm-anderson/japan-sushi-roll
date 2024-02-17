@@ -1,15 +1,19 @@
-import Overview from "./Overview";
+import MenuPicker from "./MenuPicker";
 import Featured from "./Featured";
 import Menu from "./Menu";
-import ItemModal from "./ItemModal";
+import ModalDetails from "./ModalDetails";
+import ModalHours from "./ModalHours";
+import Info from "./Info";
 
 function Main() {
   return (
     <main className="flex h-full max-w-md flex-col gap-2">
-      <Overview />
       <Featured />
+      <Info />
+      <MenuPicker />
       <Menu />
-      <ItemModal />
+      <ModalDetails />
+      <ModalHours />
     </main>
   );
 }

@@ -15,7 +15,7 @@ export async function homeLoader() {
 
 function Home() {
   return (
-    <div className="flex h-full max-w-md flex-col gap-2">
+    <div className="flex h-full max-w-md justify-between flex-col">
       <Navbar />
 
       <Main />
