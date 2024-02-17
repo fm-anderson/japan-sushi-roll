@@ -1,16 +1,9 @@
 import { useLoaderData } from "react-router-dom";
+import StatusBadge from "./StatusBadge";
 
 function ItemModal() {
-  const data = useLoaderData();
+  const { hours, currentDay } = useLoaderData();
 
-  const days = [
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
   return (
     <>
       <input type="checkbox" id="hours_modal" className="modal-toggle" />
@@ -22,21 +15,24 @@ function ItemModal() {
               The restaurant's actual hours of operation
             </p>
           </div>
-          {days.map((day) => (
-            <div key={day} className="border-b-2 py-2">
-              <p className="font-semibold">{day}</p>
-              <p>11:00 am - 10:00 pm</p>
+          {hours.map((item, index) => (
+            <div
+              key={item.day}
+              className={`py-2 flex justify-between items-center ${
+                index === hours.length - 1 ? "last:border-b-0" : "border-b-2"
+              }`}
+            >
+              <span>
+                <p className="font-semibold">{item.day}</p>
+                <p>
+                  {item.from.toLowerCase() === "closed"
+                    ? "Closed"
+                    : `${item.from} - ${item.to}`}
+                </p>
+              </span>
+              {item.day === currentDay && <StatusBadge isOpen={true} />}
             </div>
           ))}
-          <div className="py-2 flex justify-between">
-            <span>
-              <p className="font-semibold">Sunday</p>
-              <p>11:00 am - 10:00 pm</p>
-            </span>
-            <span className="badge badge-primary font-mono font-bold align-middle text-primary-content">
-              open now
-            </span>
-          </div>
 
           <label
             className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"

@@ -1,3 +1,5 @@
+import { getWeekDay, isOpen } from "./helper";
+
 export async function homeLoader() {
   try {
     const response = await fetch(import.meta.env.VITE_BASE_URL);
@@ -10,11 +12,16 @@ export async function homeLoader() {
     const data = await response.json();
     const { featured, hours, items, menus } = data.data;
 
+    const currentDay = getWeekDay();
+    const isOpenNow = isOpen(hours, currentDay);
+
     return {
       featured,
       hours,
       items,
       menus,
+      currentDay,
+      isOpenNow,
     };
   } catch (err) {
     console.error("Error: ", err);

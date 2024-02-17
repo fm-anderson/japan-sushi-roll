@@ -1,7 +1,8 @@
-import { useState } from "react";
+import StatusBadge from "./StatusBadge";
+import { useLoaderData } from "react-router-dom";
 
 function Info() {
-  const [isOpen, setIsOpen] = useState(false);
+  const { isOpenNow } = useLoaderData();
 
   return (
     <div className="mx-4 mt-2 justify-between flex gap-2">
@@ -13,15 +14,7 @@ function Info() {
         </label>
       </div>
       <div>
-        {isOpen ? (
-          <span className="badge badge-primary font-mono font-bold align-middle text-primary-content">
-            open now
-          </span>
-        ) : (
-          <span className="badge badge-accent font-mono font-bold align-middle text-primary-content">
-            closed
-          </span>
-        )}
+        <StatusBadge isOpen={isOpenNow} />
       </div>
     </div>
   );
