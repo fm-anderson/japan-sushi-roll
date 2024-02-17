@@ -1,6 +1,6 @@
-function MenuItem({ item }) {
+function MenuItem({ item, onSelect }) {
   return (
-    <tr>
+    <tr onClick={() => onSelect(item)}>
       <td>
         <label htmlFor="item_modal">
           <div className="flex items-center gap-3">

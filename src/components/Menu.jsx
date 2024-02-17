@@ -1,7 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import MenuItem from "./MenuItem";
 
-function Menu({ current }) {
+function Menu({ current, onSelect }) {
   const { items } = useLoaderData();
   const currentMenu = items.filter((item) => item.menu === current);
 
@@ -17,7 +17,7 @@ function Menu({ current }) {
           <tbody>
             {currentMenu.length > 0 ? (
               currentMenu.map((item) => (
-                <MenuItem key={item.name} item={item} />
+                <MenuItem key={item.name} item={item} onSelect={onSelect} />
               ))
             ) : (
               <tr>
