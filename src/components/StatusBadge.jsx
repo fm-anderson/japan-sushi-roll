@@ -5,7 +5,7 @@ function StatusBadge() {
 
   return (
     <span
-      className={`badge badge-${isOpenNow ? "primary" : "accent"} font-mono font-bold align-middle text-primary-content`}
+      className={`badge ${isOpenNow ? "badge-primary" : "badge-accent"} font-mono font-bold align-middle text-primary-content`}
     >
       {isOpenNow ? "open now" : "closed"}
     </span>
