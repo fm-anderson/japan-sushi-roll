@@ -5,7 +5,7 @@ function Info() {
   const { isOpenNow } = useLoaderData();
 
   return (
-    <div className="mx-4 mt-2 justify-between flex gap-2">
+    <div className="mx-4 my-2 justify-between flex gap-2">
       <div>
         <label htmlFor="hours_modal">
           <span className="badge badge-ghost font-mono font-bold align-middle text-primary-content">

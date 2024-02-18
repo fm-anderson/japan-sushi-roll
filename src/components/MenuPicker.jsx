@@ -4,7 +4,7 @@ function MenuPicker({ onSelect }) {
   const { menus } = useLoaderData();
 
   return (
-    <div className="mx-4 mt-2 grid grid-cols-4 gap-2">
+    <div className="mx-4 my-2 grid grid-cols-4 gap-2">
       {menus.map((menu) => (
         <button key={menu} className="btn" onClick={() => onSelect(menu)}>
           {menu}

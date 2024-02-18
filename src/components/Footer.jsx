@@ -1,11 +1,13 @@
+import SocialIcons from "./SocialIcons";
+
 function Footer() {
   return (
-    <footer className="max-w-md bg-base-100 border-t-2">
+    <footer className="max-w-md bg-base-200 my-1 py-2">
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex flex-col items-center gap-1 py-2">
-          <h1>Yumi Sushi House © {new Date().getFullYear()}</h1>
-          <div>
-            <p>
+          <div className="flex w-full justify-between">
+            <SocialIcons />
+            <p className="opacity-80">
               Created by:{" "}
               <a
                 className="text-blue-600 underline visited:text-purple-600 hover:text-blue-800"

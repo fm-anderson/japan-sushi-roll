@@ -23,7 +23,7 @@ function Home() {
   }, []);
 
   return (
-    <div className="flex h-full max-w-md justify-between flex-col">
+    <div className="flex min-h-screen max-w-md justify-between flex-col">
       <Navbar />
 
       {loading ? <Loading /> : <Main />}
