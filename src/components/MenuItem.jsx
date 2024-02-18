@@ -10,14 +10,15 @@ function MenuItem({ item, onSelect }) {
               </div>
             </div>
             <div>
-              <div className="font-bold">{item.name}</div>
+              <p className="font-bold text-lg">{item.name}</p>
+              <p className="opacity-60">{item.pieces} Pieces</p>
             </div>
           </div>
         </label>
       </td>
       <td></td>
       <th>
-        <button className="btn btn-ghost btn-xs">{item.price}</button>
+        <button>{item.price}</button>
       </th>
     </tr>
   );
