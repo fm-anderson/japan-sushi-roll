@@ -1,4 +1,5 @@
 import { useLoaderData } from "react-router-dom";
+import fallbackImage from "../assets/images/image-placeholder-featured.jpg";
 
 function Featured() {
   const { featured } = useLoaderData();
@@ -7,7 +8,11 @@ function Featured() {
     <div className="mx-4 my-1">
       <div className="card image-full card-bordered card-compact bg-base-100 shadow-xl">
         <figure>
-          <img className="h-full" src={featured.image} alt="Shoes" />
+          <img
+            className="h-full"
+            src={featured.image ? featured.image : fallbackImage}
+            alt="Featured Image"
+          />
         </figure>
         <div className="card-body">
           <h2 className="card-title text-2xl">{featured.title}</h2>
