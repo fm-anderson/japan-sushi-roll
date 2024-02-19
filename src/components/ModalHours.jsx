@@ -7,7 +7,7 @@ function ItemModal() {
   return (
     <>
       <input type="checkbox" id="hours_modal" className="modal-toggle" />
-      <div className="modal modal-bottom" role="dialog">
+      <div className="modal modal-bottom max-w-md" role="dialog">
         <div className="modal-box">
           <div className="pb-8">
             <h3 className="font-bold text-lg">Store Hours</h3>

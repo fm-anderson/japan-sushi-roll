@@ -6,7 +6,7 @@ function ModalDetails({ item }) {
   return (
     <>
       <input type="checkbox" id="item_modal" className="modal-toggle" />
-      <div className="modal" role="dialog">
+      <div className="modal max-w-md" role="dialog">
         <div className="card modal-box card-compact bg-base-100 p-0 shadow-xl">
           <figure className="m-4">
             <img src={item.image} alt="Sushi" />

@@ -7,7 +7,7 @@ function Menu({ current, onSelect }) {
 
   return (
     <div className="mx-4 flex flex-col gap-2">
-      <div className="h-96 overflow-x-auto">
+      <div className="h-96 overflow-x-auto hide-scrollbar">
         <div className="divider">
           <span className="text-center text-lg font-semibold uppercase">
             {`MENU ${current.toUpperCase()}`}
