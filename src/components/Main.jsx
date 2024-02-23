@@ -5,6 +5,7 @@ import MenuPicker from "./MenuPicker";
 import Menu from "./Menu";
 import ModalDetails from "./ModalDetails";
 import ModalHours from "./ModalHours";
+import ModalCart from "./ModalCart";
 
 function Main() {
   const [selectedMenu, setSelectedMenu] = useState("Appetizers");
@@ -16,6 +17,7 @@ function Main() {
       <Info />
       <MenuPicker onSelect={setSelectedMenu} />
       <Menu current={selectedMenu} onSelect={setSelectedItem} />
+      <ModalCart />
       <ModalDetails item={selectedItem} />
       <ModalHours />
     </main>

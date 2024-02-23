@@ -8,7 +8,7 @@ function Navbar() {
         <a className="font-semibold text-2xl">Japan Sushi Roll</a>
       </div>
       <div className="flex-none">
-        <button className="btn btn-square btn-ghost">
+        <label htmlFor="cart_modal" className="btn btn-square btn-ghost">
           <div className="indicator">
             <span className="badge badge-sm text-xs indicator-item badge-neutral font-semibold">
               1
@@ -24,7 +24,7 @@ function Navbar() {
               <circle cx="16.5" cy="19.5" r="1.5"></circle>
             </svg>
           </div>
-        </button>
+        </label>
       </div>
     </header>
   );
