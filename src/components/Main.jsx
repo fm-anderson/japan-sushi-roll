@@ -7,7 +7,7 @@ import ModalDetails from "./ModalDetails";
 import ModalHours from "./ModalHours";
 
 function Main() {
-  const [selectedMenu, setSelectedMenu] = useState("Fresh");
+  const [selectedMenu, setSelectedMenu] = useState("Appetizers");
   const [selectedItem, setSelectedItem] = useState(null);
 
   return (
