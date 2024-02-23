@@ -1,6 +1,6 @@
 import fallbackImage from "../assets/images/image-placeholder-modal.png";
 
-function ModalDetails({ item }) {
+function ModalDetails({ item, handleAddToCart }) {
   if (!item) {
     return null;
   }
@@ -23,7 +23,12 @@ function ModalDetails({ item }) {
               <label className="btn btn-sm" htmlFor="item_modal">
                 close
               </label>
-              {/* <button className="btn btn-neutral btn-sm">Add to cart</button> */}
+              <button
+                className="btn btn-neutral btn-sm"
+                onClick={() => handleAddToCart(item)}
+              >
+                Add to cart
+              </button>
             </div>
           </div>
         </div>

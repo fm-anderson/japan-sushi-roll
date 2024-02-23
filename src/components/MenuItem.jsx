@@ -22,7 +22,7 @@ function MenuItem({ item, onSelect }) {
         </label>
       </td>
       <td></td>
-      <th>
+      <th className="flex gap-1">
         <button>{item.price}</button>
       </th>
     </tr>

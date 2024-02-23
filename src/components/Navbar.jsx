@@ -1,6 +1,6 @@
 import logo from "../assets/images/logo-icon.png";
 
-function Navbar() {
+function Navbar({ cartItemsCount }) {
   return (
     <header className="navbar bg-base-100">
       <div className="flex-1 gap-2">
@@ -10,9 +10,11 @@ function Navbar() {
       <div className="flex-none">
         <label htmlFor="cart_modal" className="btn btn-square btn-ghost">
           <div className="indicator">
-            <span className="badge badge-sm text-xs indicator-item badge-neutral font-semibold">
-              1
-            </span>
+            {cartItemsCount > 0 && (
+              <span className="badge badge-sm text-xs indicator-item badge-neutral font-semibold">
+                {cartItemsCount}
+              </span>
+            )}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
