@@ -1,8 +1,8 @@
-import { useLoaderData } from "react-router-dom";
+import { useRouteLoaderData } from "react-router-dom";
 import fallbackImage from "../assets/images/image-placeholder-featured.jpg";
 
 function Featured() {
-  const { featured } = useLoaderData();
+  const { featured } = useRouteLoaderData("root");
 
   return (
     <div className="mx-4 my-1">

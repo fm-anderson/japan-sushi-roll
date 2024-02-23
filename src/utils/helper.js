@@ -1,3 +1,47 @@
+import { homeLoader } from "./api";
+
+export function closeModal(modal) {
+  const modalCheckbox = document.getElementById(modal);
+  if (modalCheckbox) {
+    modalCheckbox.checked = false;
+  }
+}
+
+export function AddToCart(cartItems, setCartItems, newItem) {
+  const index = cartItems.findIndex((item) => item.id === newItem.id);
+
+  if (index !== -1) {
+    const updatedCartItems = cartItems.map((item, i) =>
+      i === index ? { ...item, quantity: item.quantity + 1 } : item
+    );
+    setCartItems(updatedCartItems);
+    localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
+  } else {
+    const updatedCartItems = [...cartItems, { ...newItem, quantity: 1 }];
+    setCartItems(updatedCartItems);
+    localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
+  }
+}
+
+export function sumTotal(cartItems) {
+  let total = 0;
+  cartItems.forEach((item) => {
+    const numericPrice = parseFloat(item.price.replace(/\$/g, ""));
+    total += numericPrice;
+  });
+  return total;
+}
+
+export function removeFromCart(cartItems, setCartItems, id) {
+  const updatedCartItems = cartItems.filter((item) => item.id !== id);
+  setCartItems(updatedCartItems);
+  localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
+}
+
+export function getWeekDay() {
+  return new Date().toLocaleDateString("en-US", { weekday: "long" });
+}
+
 export function isOpen(hours, currentDay) {
   const currentHour = new Date().getHours();
   const currentMinute = new Date().getMinutes();
@@ -8,6 +52,7 @@ export function isOpen(hours, currentDay) {
     return false;
   }
 
+  // Convert time to 24-hour format
   const [openHour, openMinute] = currentDayHours.from
     .split(":")
     .map((part) => parseInt(part));
@@ -15,9 +60,17 @@ export function isOpen(hours, currentDay) {
     .split(":")
     .map((part) => parseInt(part));
 
+  // Adjust opening and closing time for PM hours
+  const adjustedOpenHour = currentDayHours.from.toLowerCase().includes("pm")
+    ? openHour + 12
+    : openHour;
+  const adjustedCloseHour = currentDayHours.to.toLowerCase().includes("pm")
+    ? closeHour + 12
+    : closeHour;
+
   const currentTimeInMinutes = currentHour * 60 + currentMinute;
-  const openingTimeInMinutes = openHour * 60 + openMinute;
-  const closingTimeInMinutes = closeHour * 60 + closeMinute;
+  const openingTimeInMinutes = adjustedOpenHour * 60 + openMinute;
+  const closingTimeInMinutes = adjustedCloseHour * 60 + closeMinute;
 
   return (
     currentTimeInMinutes >= openingTimeInMinutes &&
@@ -25,6 +78,17 @@ export function isOpen(hours, currentDay) {
   );
 }
 
-export function getWeekDay() {
-  return new Date().toLocaleDateString("en-US", { weekday: "long" });
+export async function fetchData(setLoading, setCartItems) {
+  try {
+    await homeLoader();
+    setLoading(false);
+
+    const storedCartItems = localStorage.getItem("cartItems");
+    if (storedCartItems) {
+      setCartItems(JSON.parse(storedCartItems));
+    }
+  } catch (error) {
+    console.error("Error fetching data: ", error);
+    setLoading(false);
+  }
 }

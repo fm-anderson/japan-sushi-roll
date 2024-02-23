@@ -1,7 +1,7 @@
-import { useLoaderData } from "react-router-dom";
+import { useRouteLoaderData } from "react-router-dom";
 
 function MenuPicker({ onSelect }) {
-  const { menus } = useLoaderData();
+  const { menus } = useRouteLoaderData("root");
 
   return (
     <div className="mx-4 my-2 overflow-x-scroll hide-scrollbar">

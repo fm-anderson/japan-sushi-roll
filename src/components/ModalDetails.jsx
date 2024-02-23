@@ -1,6 +1,15 @@
+import { useOutletContext } from "react-router-dom";
+import { AddToCart, closeModal } from "../utils/helper";
 import fallbackImage from "../assets/images/image-placeholder-modal.png";
 
-function ModalDetails({ item, handleAddToCart }) {
+function ModalDetails({ item }) {
+  const { cartItems, setCartItems } = useOutletContext();
+
+  function handleAddToCart() {
+    AddToCart(cartItems, setCartItems, item);
+    closeModal("item_modal");
+  }
+
   if (!item) {
     return null;
   }
@@ -25,7 +34,7 @@ function ModalDetails({ item, handleAddToCart }) {
               </label>
               <button
                 className="btn btn-neutral btn-sm"
-                onClick={() => handleAddToCart(item)}
+                onClick={handleAddToCart}
               >
                 Add to cart
               </button>

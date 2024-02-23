@@ -7,7 +7,7 @@ import ModalDetails from "./ModalDetails";
 import ModalHours from "./ModalHours";
 import ModalCart from "./ModalCart";
 
-function Main({ cartItems, setCartItems, handleAddToCart, removeFromCart }) {
+function Main() {
   const [selectedMenu, setSelectedMenu] = useState("Appetizers");
   const [selectedItem, setSelectedItem] = useState(null);
 
@@ -16,19 +16,10 @@ function Main({ cartItems, setCartItems, handleAddToCart, removeFromCart }) {
       <Featured />
       <Info />
       <MenuPicker onSelect={setSelectedMenu} />
-      <Menu
-        current={selectedMenu}
-        onSelect={setSelectedItem}
-        cartItems={cartItems}
-        setCartItems={setCartItems}
-      />
-      <ModalCart
-        cartItems={cartItems}
-        setCartItems={setCartItems}
-        removeFromCart={removeFromCart}
-      />
-      <ModalDetails item={selectedItem} handleAddToCart={handleAddToCart} />
+      <Menu current={selectedMenu} onSelect={setSelectedItem} />
+      <ModalDetails item={selectedItem} />
       <ModalHours />
+      <ModalCart />
     </main>
   );
 }

@@ -1,8 +1,8 @@
-import { useLoaderData } from "react-router-dom";
+import { useRouteLoaderData } from "react-router-dom";
 import StatusBadge from "./StatusBadge";
 
 function ItemModal() {
-  const { hours, currentDay } = useLoaderData();
+  const { hours, currentDay } = useRouteLoaderData("root");
 
   return (
     <>

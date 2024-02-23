@@ -1,8 +1,8 @@
+import { useRouteLoaderData } from "react-router-dom";
 import StatusBadge from "./StatusBadge";
-import { useLoaderData } from "react-router-dom";
 
 function Info() {
-  const { isOpenNow } = useLoaderData();
+  const { isOpenNow } = useRouteLoaderData("root");
 
   return (
     <div className="mx-4 my-2 justify-between flex gap-2">

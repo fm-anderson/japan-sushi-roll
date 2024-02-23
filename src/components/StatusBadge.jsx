@@ -1,7 +1,7 @@
-import { useLoaderData } from "react-router-dom";
+import { useRouteLoaderData } from "react-router-dom";
 
 function StatusBadge() {
-  const { isOpenNow } = useLoaderData();
+  const { isOpenNow } = useRouteLoaderData("root");
   const color = isOpenNow ? "badge-primary" : "badge-accent";
 
   return (

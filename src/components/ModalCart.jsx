@@ -1,6 +1,16 @@
+import { useEffect, useState } from "react";
+import { useOutletContext } from "react-router-dom";
+import { removeFromCart, sumTotal } from "../utils/helper";
 import trash from "../assets/icons/trash.svg";
 
-function ModalCart({ cartItems, setCartItems, removeFromCart }) {
+function ModalCart() {
+  const { cartItems, setCartItems } = useOutletContext();
+  const [totalPrice, setTotalPrice] = useState(0);
+
+  useEffect(() => {
+    setTotalPrice(sumTotal(cartItems));
+  }, [cartItems]);
+
   return (
     <>
       <input type="checkbox" id="cart_modal" className="modal-toggle" />
@@ -22,33 +32,46 @@ function ModalCart({ cartItems, setCartItems, removeFromCart }) {
             </span>
           </div>
           <div>
-            <ul>
-              {cartItems.map((item) => (
-                <li
-                  key={item.id}
-                  className="flex gap-2 mb-3 border-b-2 justify-between"
-                >
-                  <span className="flex gap-1">
-                    <p className="font-semibold">
-                      <span className="text-sm mr-2">{item.quantity}x</span>
-                      {item.price}
-                    </p>
-                    <p>{item.name}</p>
-                  </span>
-                  <span className="flex items-end p-1">
-                    <button
-                      className="btn-ghost"
-                      onClick={() => removeFromCart(item.id)}
+            {cartItems.length === 0 ? (
+              <p className="text-center text-gray-500 py-4">
+                Your cart is empty.
+              </p>
+            ) : (
+              <>
+                <ul>
+                  {cartItems.map((item) => (
+                    <li
+                      key={item.id}
+                      className="flex gap-2 mb-3 border-b-2 justify-between"
                     >
-                      <img src={trash} alt="trash icon" className="h-6" />
-                    </button>
-                  </span>
-                </li>
-              ))}
-            </ul>
-            <div className="card-actions mt-6 justify-end">
-              <button className="btn btn-neutral text-lg">Total: $61.78</button>
-            </div>
+                      <span className="flex gap-1 items-center">
+                        <p className="font-semibold">
+                          <span className="text-sm mr-2">{item.quantity}x</span>
+                          {item.price}
+                        </p>
+                        <p>{item.name}</p>
+                        <p className="text-sm">({item.menu})</p>
+                      </span>
+                      <span className="flex items-end p-1">
+                        <button
+                          className="btn-ghost"
+                          onClick={() =>
+                            removeFromCart(cartItems, setCartItems, item.id)
+                          }
+                        >
+                          <img src={trash} alt="trash icon" className="h-6" />
+                        </button>
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+                <div className="card-actions mt-6 justify-end">
+                  <button className="btn btn-neutral text-lg">
+                    Total: ${totalPrice.toFixed(2)}
+                  </button>
+                </div>
+              </>
+            )}
           </div>
           <label
             className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"

@@ -1,8 +1,8 @@
-import { useLoaderData } from "react-router-dom";
+import { useRouteLoaderData } from "react-router-dom";
 import MenuItem from "./MenuItem";
 
 function Menu({ current, onSelect }) {
-  const { items } = useLoaderData();
+  const { items } = useRouteLoaderData("root");
   const currentMenu = items.filter((item) => item.menu === current);
 
   return (
