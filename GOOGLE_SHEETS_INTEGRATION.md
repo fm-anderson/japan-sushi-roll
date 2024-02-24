@@ -1,4 +1,10 @@
-# Google Sheets Integration Guide for Japan Sushi Roll Menu App
+# Google Sheets Integration Guide
+
+## Links
+
+- **Deployment:** https://japansushiroll.netlify.app/
+- **Apps Script Docs:** https://developers.google.com/apps-script/reference/spreadsheet
+- **Spreadsheet Example:** https://docs.google.com/spreadsheets/d/1H7EqjV7eZJ4MOwH4yO1xs4rtn_NdK0pqxNlv1pJHUyU/
 
 ## Introduction
 
@@ -7,18 +13,16 @@ This guide provides detailed instructions for integrating Google Sheets as a sim
 ## Setting up Google Sheets
 
 1. **Create a Google Sheet:** Start by creating a new Google Sheet to serve as your database.
-
-2. **Structure Your Data:** Designate each column for different attributes (e.g., Item ID, Menu Category, Item Name, Price Description, Image URL).
-
+2. **Structure Your Data:** Designate each column for different attributes.
 3. **See Example:** [Spreadsheet Example](https://docs.google.com/spreadsheets/d/1H7EqjV7eZJ4MOwH4yO1xs4rtn_NdK0pqxNlv1pJHUyU/).
 
 ## Google Apps Script
 
-1. Access Script Editor:
+1. **Access Script Editor:**
 
 - In your Google Sheet, go to `Extensions` > `Apps Script` to open the script editor.
 
-2. Create doGet Function:
+2. **Create doGet Function:**
 
 ```javascript
 // Google Apps Script for Japan Sushi Roll Menu App
@@ -100,18 +104,18 @@ function doGet() {
 }
 ```
 
-1. Deploy as Web App:
+3. **Deploy as Web App:**
 
 - In the Apps Script editor, click `Deploy` → `New deployment`.
 - Select `Web app` and set the access permissions as executing the app as yourself and accessible to anyone.
 
-1. Access URL:
+4. **Access URL:**
 
 - Once deployed, you will receive a URL to your web app. This URL serves as the endpoint from which your application can request data.
 
 ## Integrating with Your Application
 
-1. Fetch Data:
+1. **Fetch Data:**
 
 - Use the provided URL in your application to fetch data from your Google Sheet.
 - Example fetch request in JavaScript:
@@ -125,7 +129,7 @@ fetch("YOUR_WEB_APP_URL")
   });
 ```
 
-2. Update and Retrieve Data:
+2. **Update and Retrieve Data:**
 
 - To update your data, simply make changes directly in the Google Sheet. Your app will retrieve the updated data on the next fetch request.
 - For more advanced operations like adding or deleting rows, you would need to extend your Apps Script functionality and possibly implement additional API methods.
