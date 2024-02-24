@@ -8,19 +8,19 @@ export function closeModal(modal) {
 }
 
 export function AddToCart(cartItems, setCartItems, newItem) {
+  let updatedCartItems = cartItems;
   const index = cartItems.findIndex((item) => item.id === newItem.id);
 
   if (index !== -1) {
-    const updatedCartItems = cartItems.map((item, i) =>
+    updatedCartItems = cartItems.map((item, i) =>
       i === index ? { ...item, quantity: item.quantity + 1 } : item
     );
-    setCartItems(updatedCartItems);
-    localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
   } else {
-    const updatedCartItems = [...cartItems, { ...newItem, quantity: 1 }];
-    setCartItems(updatedCartItems);
-    localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
+    updatedCartItems = [...cartItems, { ...newItem, quantity: 1 }];
   }
+
+  setCartItems(updatedCartItems);
+  localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
 }
 
 export function sumTotal(cartItems) {
@@ -45,7 +45,6 @@ export function getWeekDay() {
 export function isOpen(hours, currentDay) {
   const currentHour = new Date().getHours();
   const currentMinute = new Date().getMinutes();
-
   const currentDayHours = hours.find((item) => item.day === currentDay);
 
   if (!currentDayHours || currentDayHours.from.toLowerCase() === "closed") {
