@@ -2,7 +2,6 @@
 
 ## Links
 
-- **Deployment:** https://japansushiroll.netlify.app/
 - **Apps Script Docs:** https://developers.google.com/apps-script/reference/spreadsheet
 - **Spreadsheet Example:** https://docs.google.com/spreadsheets/d/1H7EqjV7eZJ4MOwH4yO1xs4rtn_NdK0pqxNlv1pJHUyU/
 
