@@ -2,6 +2,7 @@
 
 ## Links
 
+- **Deployment:** https://japansushiroll.netlify.app/
 - **Apps Script Docs:** https://developers.google.com/apps-script/reference/spreadsheet
 - **Spreadsheet Example:** https://docs.google.com/spreadsheets/d/1H7EqjV7eZJ4MOwH4yO1xs4rtn_NdK0pqxNlv1pJHUyU/
 
@@ -141,6 +142,6 @@ fetch("YOUR_WEB_APP_URL")
 
 ## Conclusion
 
-Using Google Sheets as a backend offers a quick, easy-to-manage solution for dynamic data applications like the Japan Sushi Roll Menu App example. By following the steps outlined in this guide, you can leverage [Google Sheets](https://sheets.google.com/) for your projects, benefiting from its flexibility and ease of use.
+Using Google Sheets as a backend offers a quick, easy-to-manage solution for dynamic data applications like the [Japan Sushi Roll](https://japansushiroll.netlify.app/) Menu App example. By following the steps outlined in this guide, you can leverage [Google Sheets](https://sheets.google.com/) for your projects, benefiting from its flexibility and ease of use.
 
 For further customization and support, consider exploring [Google Apps Script documentation](https://developers.google.com/apps-script/reference/spreadsheet) and the broader developer community resources.
