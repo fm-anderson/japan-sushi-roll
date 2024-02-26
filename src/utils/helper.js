@@ -91,3 +91,8 @@ export async function fetchData(setLoading, setCartItems) {
     setLoading(false);
   }
 }
+
+export function delay(min, max) {
+  const randomDelay = Math.floor(Math.random() * (max - min + 1)) + min;
+  return new Promise((resolve) => setTimeout(resolve, randomDelay));
+}
