@@ -4,7 +4,7 @@
 
 The Japan Sushi Roll Menu App is a web application designed to streamline the presentation of a restaurant's menu directly from a Google Spreadsheet. This project exemplifies a practical use case of leveraging Google Sheets as a simplistic, yet effective database for applications where high levels of privacy and security are not required. It's an ideal solution for small to medium-sized restaurants looking to digitize their menu offerings without the overhead of complex database management systems.
 
-[Live Site](https://japansushiroll.netlify.app/) | [Spreadsheet](https://docs.google.com/spreadsheets/d/1H7EqjV7eZJ4MOwH4yO1xs4rtn_NdK0pqxNlv1pJHUyU/)
+[Spreadsheet](https://docs.google.com/spreadsheets/d/1H7EqjV7eZJ4MOwH4yO1xs4rtn_NdK0pqxNlv1pJHUyU/)
 
 ## Features
 
